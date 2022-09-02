@@ -9,64 +9,111 @@
 </head>
 <body>
   <header>
-    <img class="header-icon">
-    <h1 class="header-title">
-      Portfolio     
-    </h1>
-    <h3 class="header-subtitle">
-      created by NH
-    </h3>
+    <div class="header-top-container">
+      <img src="assets/header_icon.jpeg" class="header-icon">
+      <h1 class="header-title">
+        Portfolio     
+      </h1>
+      <h3 class="header-subtitle">
+        created by NH
+      </h3>
+    </div>
     <nav>
       <ul class="header-nav-list">
         <li class="header-nav-item">
-          profile
+          <a href="#section-profile-heading">
+            profile
+          </a>
         </li>
         <li class="header-nav-item">
-          skill
+          <a href="#section-skills-heading">
+            skills
+          </a>
         </li>
         <li class="header-nav-item">
-          work
+          <a href="#section-works-heading">
+            works
+          </a>
         </li>
       </ul>
     </nav>
-    <img class="header-background-image">
+    <div class="header-bottom-container">
+      <div class="left-blur"></div>
+      <img src="assets/header_background_image.jpeg" class="header-background-image">
+      <div class="right-blur"></div>
+    </div>
   </header>
   <section class="section-profile">
     <div>
-      <h3 class="section-profile-heading">Profile</h3>
-      <img class="section-profile-icon">
-      <p class="section-profile-description">
-        テキストテキストテキストテキストテキストテキストテキストテキスト
-      </p>
+      <h3 class="section-profile-heading" id="section-profile-heading">Profile</h3>
+        <div class="section-icon-description-group">
+          <img src="assets/profile_icon.png" class="section-profile-icon">
+          <div class="section-profile-description">
+            <p class="section-profile-text">
+              年齢 : 23歳<br>
+              出身 : 神奈川県<br>
+              趣味 : アニメ鑑賞、海外旅行など<br>
+              <br>
+              経歴 :<br>
+              大学生の頃にiPhoneアプリのリリース(現在はサービス停止)を経験。<br>
+              その後、新卒でwebエンジニアに就職するも、4ヶ月後に学生の頃から続けていた勉強に集中するため退職。<br>
+              退職後、勉強を続けながら2021年夏に、宮崎県への移住を決意。勉強の中で目標としていたことを一旦達成したので、現在は第2新卒として再就職活動中。<br>
+              <br>
+              当時、新卒で入った会社の方々とは今も仲良くさせてもらっています😭
+            </p>
+          </div>
+        </div>
     </div>
   </section>
   <section class="section-skills">
     <div>
-      <h3 class="section-skills-heading">Skills</h3>
-      <img class="section-skills-icon">
-      <p class="sectionn-skills-description">
-        テキストテキストテキストテキストテキストテキストテキストテキスト
-      </p>
+      <h3 class="section-skills-heading" id="section-skills-heading">Skills</h3>
+      <div class="section-icon-description-group">
+        <img src="assets/skilld_icon.png" class="section-skills-icon">
+        <div class="sectionn-skills-description">
+          <p class="sectionn-skills-text">
+            言語 : <br>
+            Swift / HTML / CSS / JavaScript / PHP<br>
+            <br>
+            DB : <br>
+            MySQL / AWS / Firebase / Docker<br>
+            <br>
+            その他 : <br>
+            GitHub / Figma<br>
+            <br>
+            ※上記全てを経験したことはありますが、現在も全てを使いこなせるわけではありません🙇‍♂️
+
+        </div>
+        </p>
+      </div>
     </div>
   </section>
   <section class="section-works">
     <div>
-      <h3 class="section-works-heading">Works</h3>
-      <div>
-        <div class="section-works-first-exsample">
-          <img>
-          <p>テキスト</p>
-        </div>
-        <div class="section-works-second-exsample">
-          <img>
-          <p>テキスト</p>
+      <h3 class="section-works-heading" id="section-works-heading">Works</h3>
+      <div class="section-works-descriptions">
+          <div class="section-works-exsamples">
+            <img  src="assets/works_icon_01.jpeg" class="section-works-exsamples-icon">
+            <p  class="section-works-exsamples-title">
+              まんぷくマップ
+            </p>
+            <a href="https://github.com/Naoki-Yuzu/IndividualDevelopmentApp" target="_blank" class="section-works-exsamples-links">
+            </a>
+          </div>
+        <div class="section-works-exsamples">
+            <img src="assets/works_icon_02.png" class="section-works-exsamples-icon">
+            <p class="section-works-exsamples-title" >
+              自己紹介サイト
+            </p>
+            <a href="https://github.com/Naoki-Yuzu/my_portfolio" target="_blank"    class="section-works-exsamples-links">
+            </a>
         </div>
       </div>
     </div>
   </section>
   <footer>
     <p class="footer-text">
-      Copyright @ NH Al rights reserved
+      Copyright @ NH All rights reserved
     </p>
   </footer>
 </body>
