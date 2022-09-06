@@ -1,5 +1,7 @@
 @charset "utf-8";
 
+/* PC版webサイトとモバイル版webサイトで併用 */
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 20px;
@@ -9,10 +11,14 @@ body {
   margin: 0px;
 }
 
-.header-top-container {
+.header-container-for-pc {
   display: flex;
   margin: 24px 120px 34px 120px;
   align-items: flex-end;
+}
+
+.header-container-for-mobile {
+  display: none;
 }
 
 header div h1 {
@@ -25,26 +31,26 @@ header div h3 {
   margin: 0px 0px 4px 0px;
   line-height: 160%;
   font-size: 20px;
+  opacity: 80%;
 }
 
 img.header-icon {
   width: 100px;
   height: 100px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 20px;
   border-bottom: 1px solid black;
   border-top: 1px solid black;
 }
 
-nav {
+.header-nav {
   margin: 0px;
   padding: 0px 120px;
   height: 40px;
-  background-color: black;
   background: linear-gradient(to right, white, 30%, black);
 }
 
-ul {
+.header-nav-list {
   line-height: 40px;
   border-radius: 10px;
   height: 40px;
@@ -55,11 +61,11 @@ ul {
   justify-content: flex-end;
 }
 
-ul :hover {
+.header-nav-list :hover {
   background-color: gray;
 }
 
-li {
+.header-nav-items {
   width: 80px;
   font-size: 24px;
   padding: 0px 20px;
@@ -68,16 +74,24 @@ li {
   color: white;
 }
 
-li a {
+.header-nav-items a {
   color: white;
   text-decoration: none;
 }
 
-.header-bottom-container {
+.side-menu-list {
+  display: none;
+}
+
+.side-menu-button {
+  display: none;
+}
+
+.background-container {
   position: relative;
 }
 
-.header-background-image {
+.background-image {
   height: 200px;
   width: 100%;
   object-fit: cover;
@@ -120,12 +134,14 @@ section h3 {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .section-icon-description-group img {
   height: 180px;
   width: 210px;
   margin: 0px 80px;
+  object-fit: cover;
 }
 
 .section-icon-description-group div {
@@ -134,12 +150,14 @@ section h3 {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .section-works-descriptions {
   display: flex;
   justify-content: center;
   margin: 100px 0px;
+  flex-wrap: wrap;
 }
 
 .section-works-exsamples {
@@ -175,9 +193,223 @@ section h3 {
 }
 
 
-footer p {
+.footer-text {
   font-size: 12px;
   height: 90px;
   line-height: 90px;
   text-align: center;
+  margin: 0px;
+}
+
+/* モバイル版webサイト専用の記載 */
+
+@media screen and (max-width: 520px) {
+
+  .header-nav {
+    display: none;
+  }
+
+  header {
+    display: flex;
+    padding: 12px 18px;
+    height: 84px;
+    background-color: white;
+  }
+
+  .header-container-for-pc {
+    display: none;
+  }
+
+  .header-container-for-mobile {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+  }
+
+  .header-titles-container {
+    height: 60px;
+    display: flex;
+    flex-flow: column;
+  }
+
+  header div h1 {
+    margin: auto 0px 0px 8px;
+    font-size: 24px;
+  }
+  
+  header div h3 {
+    margin: 0px 0px 0px 8px;
+    font-size: 12px;
+  }
+  
+  img.header-icon {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .side-menu-button {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    right: 0px;
+  }
+
+  .side-menu-button-design {
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 4px;
+    background-color: black;
+    border-radius: 2px;
+    margin: 0px 0px 0px 5px;
+    transition: ease .1s;
+  }
+
+  .side-menu-button-design::before,
+  .side-menu-button-design::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    border-radius: 2px;
+    transition: ease .4s;
+  }
+
+  .side-menu-button-design::before {
+    transform: translateY(-10px);
+  }
+
+  .side-menu-button-design::after {
+    transform: translateY(10px);
+  }
+
+  .side-menu-list {
+    width: 100%;
+    display: block;
+    background: linear-gradient(135deg, black, 70%, white);
+    color: white;
+    opacity: 0.95;
+    padding: 0px;
+    margin: 0px;
+    position: fixed;
+    left: 100%;
+    transition: ease .4s;
+    z-index: 99;
+  }
+
+  .side-menu-list a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .side-menu-list.active {
+    position: absolute;
+    left: 0px;
+  }
+
+  .side-menu-button-design.active {
+    background-color: transparent;
+  }
+
+  .side-menu-button-design.active::before,
+  .side-menu-button-design.active::after {
+    transition: .2s;
+  }
+
+  .side-menu-button-design.active::before {
+    transform: rotate(45deg);
+  }
+
+  .side-menu-button-design.active::after {
+    transform: rotate(-45deg);
+  }
+
+  .side-menu-items {
+    line-height: 100%;
+    margin: 0px;
+    padding: 24px 0px 24px 48px;
+    list-style-type: none;
+    font-size: 16px;
+    font-family: Georgia;
+  }
+
+  .left-blur, .right-blur {
+    display: none;
+  }
+
+  .background-container {
+    height: 100px;
+  }
+
+  .background-image {
+    height: 100px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  section {
+    margin: 64px 18px;
+  }
+
+  .section-icon-description-group {
+    padding: 24px 0px 0px 0px;
+  }
+
+  .section-icon-description-group img {
+    height: 100px;
+    width: 150px;
+    margin: 0px;
+    padding: 0px 0px 24px 0px;
+    object-fit: contain;
+  }
+
+  .section-icon-description-group div {
+    width: 250px;
+    margin: 0px;
+  }
+
+  .section-icon-description-group p {
+    margin: 0px;
+  }
+
+  .section-works-descriptions {
+    margin: 48px 0px 0px 0px;
+  }
+
+  .section-works-exsamples {
+    margin: 48px 0px;
+    height: 148px;
+    width: 200px;
+  }
+
+  .section-works-exsamples-icon{
+    height: 100px;
+    width: 200px;
+  }
+  
+  .section-works-exsamples-title {
+    line-height: 48px;
+    height: 48px;
+  }
+
+  .section-works-exsamples-links {
+    height: 148px;
+    width: 200px;
+  }
+
+  .section-container {
+    height: 537.5px;
+  }
+
+  .footer-text {
+    font-size: 8px;
+    height: 30px;
+    line-height: 30px;
+  }
+
 }
