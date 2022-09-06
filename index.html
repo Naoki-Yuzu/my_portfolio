@@ -5,44 +5,72 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio created by NH</title>
+  <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header>
-    <div class="header-top-container">
+    <div class="header-container-for-pc">
       <img src="assets/header_icon.jpeg" class="header-icon">
       <h1 class="header-title">
         Portfolio     
       </h1>
       <h3 class="header-subtitle">
         created by NH
-      </h3>
+      </h3 >
     </div>
-    <nav>
+    <div class="header-container-for-mobile">
+      <img src="assets/header_icon.jpeg" class="header-icon">
+      <div class="header-titles-container">
+        <h1 class="header-title">
+          Portfolio     
+        </h1>
+        <h3 class="header-subtitle">
+          created by NH
+        </h3 >
+      </div>
+      <button type="button" class="side-menu-button">
+        <span class="side-menu-button-design" id="js-side-menu-button-design"></span>
+      </button>
+    </div>
+    <nav class="header-nav">
       <ul class="header-nav-list">
-        <li class="header-nav-item">
+        <li class="header-nav-items">
           <a href="#section-profile-heading">
             profile
           </a>
         </li>
-        <li class="header-nav-item">
+        <li class="header-nav-items">
           <a href="#section-skills-heading">
             skills
           </a>
         </li>
-        <li class="header-nav-item">
+        <li class="header-nav-items">
           <a href="#section-works-heading">
             works
           </a>
         </li>
       </ul>
     </nav>
-    <div class="header-bottom-container">
-      <div class="left-blur"></div>
-      <img src="assets/header_background_image.jpeg" class="header-background-image">
-      <div class="right-blur"></div>
-    </div>
   </header>
+  <nav class="side-menu">
+    <ul class="side-menu-list" id="js-side-menu-list">
+      <li class="side-menu-items" id="js-scroll-to-profile">
+        profile
+      </li>
+      <li class="side-menu-items" id="js-scroll-to-skills">
+        skills
+      </li>
+      <li class="side-menu-items" id="js-scroll-to-works">
+        works
+      </li>
+    </ul>
+  </nav>
+  <div class="background-container">
+    <div class="left-blur"></div>
+    <img src="assets/header_background_image.jpeg" class="background-image">
+    <div class="right-blur"></div>
+  </div>
   <section class="section-profile">
     <div>
       <h3 class="section-profile-heading" id="section-profile-heading">Profile</h3>
@@ -82,14 +110,13 @@
             GitHub / Figma<br>
             <br>
             ※上記全てを経験したことはありますが、現在も全てを使いこなせるわけではありません🙇‍♂️
-
         </div>
         </p>
       </div>
     </div>
   </section>
   <section class="section-works">
-    <div>
+    <div class="section-container">
       <h3 class="section-works-heading" id="section-works-heading">Works</h3>
       <div class="section-works-descriptions">
           <div class="section-works-exsamples">
@@ -116,5 +143,6 @@
       Copyright @ NH All rights reserved
     </p>
   </footer>
+  <script src="main.js"></script>
 </body>
 </html>
