@@ -25,4 +25,4 @@
 - Figma
 
 ### コード管理
-- Github
+- GitHub
