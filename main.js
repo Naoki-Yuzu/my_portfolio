@@ -1,6 +1,8 @@
 // ハンバーガーメニューを取得
 
-const hambergerButton = document.querySelector(`#js-side-menu-button-design`)
+
+const hambergerButton = document.querySelector(`#js-side-menu-button`)
+const hambergerButtonDesign = document.querySelector(`#js-side-menu-button-design`)
 
 // サイドメニューを取得
 
@@ -28,39 +30,82 @@ const scrollParticularPosition = function(section) {
     top: top - 20,
     behavior: "smooth"
   });
+  console.log(top - 20);
+}
+
+// 特定の位置にスクロール(safariのios専用)
+
+const scrollParticularPositionForSafariFromIos = function(section) {
+  const scrollSpeed = 300;
+  const timerStep = 20;
+  
+  const scrollPosition = window.pageYOffset;
+  const sectionPosition = section.offsetTop - 20;
+
+  const scrollStep = sectionPosition / (scrollSpeed / timerStep);
+  var currentScroll = scrollPosition;
+
+  const smoothScrollTimer = setInterval(function() {
+    if (currentScroll >= sectionPosition) {
+      window.scrollTo(section.offsetLeft, sectionPosition);
+      clearInterval(smoothScrollTimer);
+    } else {
+      currentScroll += scrollStep;
+      window.scrollTo(section.offsetLeft, currentScroll);
+    }
+  }, timerStep);
+  
 }
 
 // ハンバーガーメニューがタップされたら、サイドメニューを表示/非表示
 
 hambergerButton.addEventListener(`click`, function() {
-  hambergerButton.classList.toggle(`active`);
+  hambergerButtonDesign.classList.toggle(`active`);
   sideMenuNav.classList.toggle(`active`);
 });
 
 // サイドメニューのリストがタップされたときのイベント処理
 
 sideMemuToProfile.addEventListener(`click`, function() {
-  hambergerButton.classList.toggle(`active`);
+  hambergerButtonDesign.classList.toggle(`active`);
   sideMenuNav.classList.toggle(`active`);
-  setTimeout(function(){
-    scrollParticularPosition(sectionProfile)
-  }, 500);
+  if(`scrollBehavior` in document.documentElement.style) {
+    setTimeout(function(){
+      scrollParticularPosition(sectionProfile)
+    }, 500);
+  } else {
+    setTimeout(function(){
+      scrollParticularPositionForSafariFromIos(sectionProfile)
+    }, 500);
+  }
 });
 
 sideMemuToSkills.addEventListener(`click`, function() {
-  hambergerButton.classList.toggle(`active`);
+  hambergerButtonDesign.classList.toggle(`active`);
   sideMenuNav.classList.toggle(`active`);
-  setTimeout(function(){
-    scrollParticularPosition(sectionSkills)
-  }, 500);
+  if(`scrollBehavior` in document.documentElement.style) {
+    setTimeout(function(){
+      scrollParticularPosition(sectionSkills)
+    }, 500);
+  } else {
+    setTimeout(function(){
+      scrollParticularPositionForSafariFromIos(sectionSkills)
+    }, 500);
+  }
 });
 
 sideMemuToWorks.addEventListener(`click`, function() {
-  hambergerButton.classList.toggle(`active`);
+  hambergerButtonDesign.classList.toggle(`active`);
   sideMenuNav.classList.toggle(`active`);
-  setTimeout(function(){
-    scrollParticularPosition(sectionWorks)
-  }, 500);
+  if(`scrollBehavior` in document.documentElement.style) {
+    setTimeout(function(){
+      scrollParticularPosition(sectionWorks)
+    }, 500);
+  } else {
+    setTimeout(function(){
+      scrollParticularPositionForSafariFromIos(sectionWorks)
+    }, 500);
+  }
 });
 
 // 記録用 : 実現不可ゾーン
@@ -72,7 +117,7 @@ sideMemuToWorks.addEventListener(`click`, function() {
 
 //   sideMenuNavLink.addEventListener(`click`, function() {
 //     console.log(arrayOfsideMenuNavLinks);
-//     hambergerButton.classList.toggle(`active`);
+//     hambergerButtonDesign.classList.toggle(`active`);
 //     sideMenuNav.classList.toggle(`active`);
 //     setTimeout(scrollParticularPosition, 1000);
 //   });  
